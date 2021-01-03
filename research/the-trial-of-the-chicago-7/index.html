@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>The Trial of the Chicago 7</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="stopwatch.js"></script>
+    </head>
+    <body>
+        <h1>The Trial of the Chicago 7</h1>
+        <h2>dialogue length*</h2>    
+        <main id="main"></main>
+        <footer>
+            <p><span class="legend-defense">█</span> defense</p>
+            <p><span class="legend-defendants">█</span> defendants</p>
+            <p><span class="legend-prosecutors">█</span> prosecutors</p>
+            <p><span class="legend-other">█</span> others</p>
+            <div><small>* estimates based on the <a target="_blank" href="https://deadline.com/wp-content/uploads/2020/12/The-Trial-of-the-Chicago-7-Script.pdf">shooting script</a></small></div>
+        </footer>
+    <script>
+
+        var defendants = "100,200,0";
+        var defense = "50,250,0";
+        var prosecutors = "200,0,0";
+        var other = "0,100,200";
+
+        var data = [ 
+            { name: "William Kunstler", time: "20:33", color: defense }, // defense
+            { name: "Tom Hayden", time: "14:30", color:defendants }, // SDS
+            { name: "Abbie Hoffman", time: "14:11", color:defendants }, // Yippies
+            { name: "Judge J. Hoffman", time: "13:14", color:other }, // judge
+            { name: "Richard Schultz", time: "11:52", color:prosecutors }, // prosecutor
+            { name: "Jerry Rubin", time: "07:40", color:defendants }, // Yippies
+            { name: "Bobby Seale", time: "05:28", color:defendants }, // Black P
+            { name: "Rennie Davis", time: "04:21", color:defendants }, // SDS
+            { name: "David Dellinger", time: "03:33", color:defendants }, // MOBE
+            { name: "John Mitchell", time: "03:30", color:prosecutors }, // prosecutor
+            { name: "Leonard Weinglass", time: "03:24", color:defense }, // defense
+            { name: "Ramsey Clark", time: "02:47", color:other } // attorney g
+        ];
+
+        var main = document.getElementById("main");
+
+        data.forEach(function(d) {
+            var card = document.createElement("section");
+            var timeArr = d.time.split(":");
+            var timeValue = parseInt(timeArr[0]) + parseInt(timeArr[1]) / 60;
+
+            card.className = "card";
+                stopwatch({
+                parent: card,
+                className: "stopwatch",
+                value: timeValue / 60,
+                label: d.name,
+                time: d.time,
+                color: d.color
+            });
+            main.appendChild(card);
+        });
+
+    </script>
+    </body>
+</html>

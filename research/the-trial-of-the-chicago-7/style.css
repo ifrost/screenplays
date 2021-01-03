@@ -1,0 +1,102 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display);
+
+body {
+    font-family: 'Playfair Display', 'Times New Roman', Times, serif;
+    font-size: 18px;
+    background-color: #eee;
+}
+
+h1, h2 {
+    font-family: Oswald, Arial, sans;
+    margin: 10px;
+}
+
+h1 {
+    font-size: 2em;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: normal;
+    text-align: center;
+}
+
+small {
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+main {
+    max-width: 900px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+section.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    width: 150px;
+    padding: 5px;
+    text-align: center;
+    margin: 5px;
+    filter: drop-shadow(3px 3px 2px #999);
+}
+
+@media only screen and (min-width: 900px) {
+    section.card {
+        width: 165px;
+        padding: 20px;
+        margin: 10px;
+    }
+}
+
+.character {    
+    font-weight: bold;
+}
+
+.time { 
+    font-family: Oswald, Arial, sans;
+    font-weight: normal;
+    font-size: 13px;
+}
+
+.stopwatch {
+    width: 100px;
+    display: inline-block;
+    margin: 10px
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+footer p {
+    display: inline-block;
+    padding: 0 10px 0 10px;
+}
+
+.legend-defense { 
+    color: rgba(50,250,0,0.7);
+}
+
+.legend-defendants { 
+    color: rgba(100,200,0,0.7);
+}
+
+.legend-prosecutors { 
+    color: rgba(200,0,0,0.7);
+}
+
+.legend-other { 
+    color: rgba(0,100,200,0.7);
+}

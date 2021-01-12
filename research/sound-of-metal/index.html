@@ -1,0 +1,147 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>Sound of Metal</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.3.1/d3.min.js" integrity="sha512-9H86d5lhAwgf2/u29K4N5G6pZThNOojI8kMT4nT4NHvVR02cM85M06KJRQXkI0XgQWBpzQyIyr8LVomyu1AQdw==" crossorigin="anonymous"></script>
+        <script src="data.js"></script>
+    </head>
+    <body>
+        <h1>Sound of Metal</h1>
+        <main id="main">
+        <div class="legend">
+            <p><span class="legend-spoken">█</span> words spoken without ASL</p>
+            <p><span class="legend-asl">█</span> words signed with ASL</p>
+        </div>
+        <div class="link">
+            <p>based on a <a target="_blank" href="https://www.amazonstudiosguilds.com/title/sound-of-metal#screenplay">screenplay by Darius Marder and Abraham Marder</a></p>
+        </div>
+        </main>
+        <script>
+            var barHeight = 30;
+            var padding = 5;
+
+            var _y = 0;            
+            var data = getData().map(function(d) {
+                d.y = _y;
+                if (d.spoken + d.asl > 0) {
+                    d.small = false; 
+                    d.height = barHeight;                   
+                } else {
+                    d.small = true;
+                    d.height = padding;
+                }
+                _y += d.height + padding;
+                return d;
+            });
+            var height = _y;
+
+            var max = -Infinity;
+            data.forEach(function(d) {
+                var total = d.asl + d.spoken;
+                if (total > max) {
+                    max = total;
+                }
+            });
+
+            var svg = d3.select(document.getElementById("main"))
+                .append('svg:svg')
+                .attr('width', '100%')
+                .attr('height', height.toString());
+
+            var rect = d3.select("svg").node().getBoundingClientRect();
+            var width = rect.width;
+            var widthRatio = width / max;
+
+            var group = svg.selectAll('rect')
+                .data(data)
+                .enter()
+                    .append('g')
+                    .classed('row', true)
+                    .attr('transform', function(d) {
+                        return 'translate(0,' + d.y + ')';
+                    })
+                    .on("mouseover", function(d) {
+                        d3.select(this).classed('hover', true);
+                    })
+                    .on("mouseout", function() {
+                        d3.select(this).classed('hover', false);
+                    });
+
+            var bg = group.append('rect')
+                    .classed('bg', true)
+                    .attr('height', function(d) {
+                        return d.height;
+                    })
+                    .attr('width', width)
+                    
+            var spoken = group.append('rect')
+                .classed('spoken', true)                
+                .attr('height', barHeight)
+                .attr('width', function(d) {
+                    return d.spoken * widthRatio;
+                })
+                .attr('x', function(d) {
+                    return width - d.spoken * widthRatio;
+                });
+            
+            var asl = group.append('rect')
+                .classed('asl', true)                
+                .attr('height', barHeight)
+                .attr('width', function(d) {
+                    return d.asl * widthRatio;
+                })
+                .attr('x', function(d) {
+                    return width - (d.spoken + d.asl) * widthRatio;
+                });
+
+            var slugline = group.append('text')
+                .classed('slug', true)
+                .style('font-size', barHeight - 2*padding)
+                .attr('dominant-baseline', 'hanging')
+                .attr('x', padding)
+                .attr('y', padding)
+                .html(function(d) {
+                    return d.small ? '' : d.scene_number + ". " + d.slugline;
+                });
+
+
+            var label = group.append('text')
+                .classed('label', true)
+                .style('font-size', barHeight - 2*padding)
+                .attr('dominant-baseline', 'hanging')
+                .attr('x', padding)
+                .attr('y', padding)
+                .html(function(d) {
+                    return d.small ? '' : "NO ASL: " + d.spoken + " / WITH ASL: " + d.asl;
+                });
+
+            var labelSpoken = group.append('text')
+                .classed('value', true)
+                .classed('spoken', true)
+                .style('font-size', barHeight/2)
+                .attr('dominant-baseline', 'hanging')
+                .attr('x', width - 1)
+                .attr('y', 1)
+                .html(function(d) {
+                    return (d.small || !d.spoken) ? '' : d.spoken;
+                });
+
+            var labelAsl = group.append('text')
+                .classed('value', true)
+                .classed('asl', true)
+                .style('font-size', barHeight/2)
+                .attr('dominant-baseline', 'auto')
+                .attr('x', function(d) {
+                    return width - d.spoken * widthRatio - 1;
+                })
+                .attr('y', barHeight - 1)
+                .html(function(d) {
+                    return (d.small || !d.asl) ? '' : d.asl;
+                });
+           
+
+        </script>
+    </body>
+</html>

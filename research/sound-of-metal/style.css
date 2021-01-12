@@ -1,0 +1,116 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display);
+
+body {
+    font-family: 'Playfair Display', 'Times New Roman', Times, serif;
+    font-size: 18px;
+    background-color: #eee;
+}
+
+h1, h2 {
+    font-family: Oswald, Arial, sans;
+    margin: 10px;
+}
+
+h1 {
+    font-size: 2em;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: normal;
+    text-align: center;
+}
+
+main {
+    max-width: 900px;
+    margin: auto;
+}
+
+div.legend, div.link {
+    margin: auto;    
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    justify-content: space-around;    
+}
+
+div.legend {
+    font-size: 18px;
+}
+
+div.link {
+    font-size: 15px;
+}
+
+text {
+    font-family: Oswald;
+}
+
+text.slug {
+    fill: rgb(250,250,250);
+    text-anchor: start;
+}
+
+text.label {
+    fill: rgb(75, 45, 45);
+    text-anchor: start;
+}
+
+text.value {
+    fill: rgb(250, 250, 250);
+    text-anchor: end;
+}
+
+text.value.asl {
+    fill: rgba(150, 237, 157);
+}
+
+text.value.spoken {
+    fill: rgb(131, 171, 211);
+}
+
+rect.bg {
+    fill: rgb(75, 45, 45);
+}
+
+rect.spoken {
+    fill: rgb(61, 101, 141);
+}
+
+rect.asl {
+    fill: rgb(80, 167, 87);
+}
+
+span.spoken {
+    fill: rgb(61, 101, 141);
+}
+
+div.legend .legend-spoken {
+    color: rgb(61, 101, 141);
+}
+
+span.asl {
+    fill: rgb(80, 167, 87);
+}
+
+div.legend .legend-asl {
+    color: rgb(80, 167, 87);
+}
+
+.row.hover .bg  {
+    fill: rgb(200,200,200);
+}
+
+.row .label {
+    opacity: 0;
+}
+
+.row.hover .slug {
+    opacity: 0;
+}
+
+.row.hover .label {
+    opacity: 1;
+}

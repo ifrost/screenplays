@@ -28,8 +28,8 @@ function render(groups) {
 
 
             if (item.slug) {
-                links.querySelector('#fountain').href = `/files/${item.slug}.fountain`;
-                links.querySelector('#pdf').href = `/files/${item.slug}.pdf`;
+                links.querySelector('#fountain').href = `./files/${item.slug}.fountain`;
+                links.querySelector('#pdf').href = `./files/${item.slug}.pdf`;
                 entry.querySelector('#links').appendChild(links);
             } else {
                 const linkSection = entry.querySelector('#links-section');

@@ -1,0 +1,28 @@
+[
+  [
+    { "title": "Heads or Tails", "slug": "heads-or-tails", "info": "thriller ※ 2020 ※ NYC Midnight Screenwriting Challenge (final)"},
+    { "title": "Listen To Your Heart", "slug": "listen-to-your-heart", "info": "romantic comedy ※ 2020 ※ NYC Midnight Screenwriting Challenge (<a href=\"http://www.nycmidnight.com/competitions/sc/2ndRound2020_Results.htm\">round 2</a>)"},
+    { "title": "Sunflower", "slug": "sunflower", "info": "drama ※ 2020 ※ NYC Midnight Screenwriting Challenge (<a href=\"http://www.nycmidnight.com/competitions/sc/1stRound2020_Results.htm\">round 1</a>)"}
+  ],
+  [
+    { "title": "Gut Factor", "slug": "gut-factor", "info": "spy ※ 2017 ※ NYC Midnight Short Screenplay Challenge (round 1)"},
+    { "title": "A Shoulder to Cry On", "slug": "a-shoulder-to-cry-on", "info": "drama ※ 2017 ※ NYC Midnight Short Screenplay Challenge (round 1)"}
+  ],
+  [
+    { "title": "Torn", "slug": "torn", "info": "drama ※ 2016 ※ BlueCat Screenwriting Competition (<a href=\"https://www.bluecatscreenplay.com/2016-competition-quarterfinalists/\">quarterfinal</a>)"}
+  ],
+  [
+    { "title": "The Dead End", "slug": "the-dead-end", "info": "drama ※ 2015 ※ WildSound Festival (<a href=\"https://wildsoundfestivalreview.com/2015/08/30/watch-the-winning-august-2015-stories-from-the-writing-festival/\">winner</a>), ReelWriters (final)"}
+  ],
+  [
+    { "title": "Laboratorium", "slug": "laboratorium", "info": "Polish ※ tv ad ※ 2013 ※ Konkurs \"Zielone Kino\" (final)"},
+    { "title": "Mistrzostwa", "slug": "mistrzostwa", "info": "Polish ※ tv ad ※ 2013 ※ Konkurs \"Zielone Kino\" (final)"},
+    { "title": "Na każdą drogę", "slug": "na-kazda-droge", "info": "Polish ※ tv ad ※ 2011 ※ Konkurs na reklamę HiMountain (winner)"}
+  ],
+  [
+    { "title": "Analysis", "info": [
+      "<a href=\"./research/sound-of-metal/\">Sound of Metal</a>",
+      "<a href=\"./research/the-trial-of-the-chicago-7/\">The Trial of Chicago 7</a>"
+    ]}
+  ]
+]

@@ -2,99 +2,25 @@
 
 <head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin">
-    <style>
-        body * {
-            font-family: 'Cabin', 'Courier New', Courier, monospace
-        }
-
-        h1 {
-            margin: 5px;
-        }
-
-        body {
-            background-color: #dddddd;
-        }
-
-        .page {
-            max-width: 800px;
-            background-color: #ffffff;
-            margin: auto;   
-            filter: drop-shadow(5px 5px 10px #333333);
-        }
-
-        .entry {
-            display: inline-block;
-            width: 100%;
-            text-align: center;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .link {
-            text-align: center;
-            display: block;
-            padding: 10px;
-            font-size: 18px;
-            color: #444444;
-        }
-
-        .link:hover {            
-            text-decoration-style: double;
-        }
-
-        .info {
-            display: inline-block;
-            padding: 10px;
-            font-weight: normal;
-            font-size: 14px;
-        }
-
-        hr {
-            border: none;
-            opacity: 0.5;
-            border-top: 3px double #999999;
-            color: #999999;
-            overflow: visible;
-            text-align: center;
-            height: 5px;
-        }
-
-        hr:after {
-            background: #fff;
-            content: '•';
-            padding: 0 4px;
-            position: relative;
-            top: -13px;
-        }
-        
-    </style>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="index.js" defer></script>
+    <!-- Icons by Dimitry Miroliubov from www.flaticon.com -->
 </head>
 
 <body>
-    <div class="page">  
-        <p class="entry"><a class="link" href="files/heads-or-tails.pdf">Heads or Tails</a><span class="info">thriller ※ 2020 ※ NYC Midnight Screenwriting Challenge (final)</span></p>
-        <p class="entry"><a class="link" href="files/listen-to-your-heart.pdf">Listen To Your Heart</a><span class="info">romantic comedy ※ 2020 ※ NYC Midnight Screenwriting Challenge (<a href="http://www.nycmidnight.com/competitions/sc/2ndRound2020_Results.htm">round 2</a>)</span></p>
-        <p class="entry"><a class="link" href="files/sunflower.pdf">Sunflower</a><span class="info">drama ※ 2020 ※ NYC Midnight Screenwriting Challenge (<a href="http://www.nycmidnight.com/competitions/sc/1stRound2020_Results.htm">round 1</a>)</span></p>
-
-        <hr />
-
-        <p class="entry"><a class="link" href="files/gut-factor.pdf">Gut Factor</a><span class="info">spy ※ 2017 ※ NYC Midnight Short Screenplay Challenge (round 1)</span></p>
-        <p class="entry"><a class="link" href="files/a-shoulder-to-cry-on.pdf">A Shoulder to Cry On</a><span class="info">drama ※ 2017 ※ NYC Midnight Short Screenplay Challenge (round 1)</span></p>
-        
-        <hr />
-
-        <p class="entry"><a class="link" href="files/torn.pdf">Torn</a><span class="info">drama ※ 2016 ※ BlueCat Screenwriting Competition (<a href="https://www.bluecatscreenplay.com/2016-competition-quarterfinalists/">quarterfinal</a>)</span></p>
-        
-        <hr />
-
-        <p class="entry"><a class="link" href="files/the-dead-end.pdf">The Dead End</a><span class="info">drama ※ 2015 ※ WildSound Festival (<a href="https://wildsoundfestivalreview.com/2015/08/30/watch-the-winning-august-2015-stories-from-the-writing-festival/">winner</a>), ReelWriters (final)</span></p>
-        
-        <hr />
-
-        <p class="entry"><a class="link" href="files/laboratorium.pdf">Laboratorium</a><span class="info">Polish ※ tv ad ※ 2013 ※ Konkurs "Zielone Kino" (final)</span></p>
-        <p class="entry"><a class="link" href="files/mistrzostwa.pdf">Mistrzostwa</a><span class="info">Polish ※ tv ad ※ 2013 ※ Konkurs "Zielone Kino" (final)</span></p>
-        <p class="entry"><a class="link" href="files/na-kazda-droge.pdf">Na każdą drogę</a><span class="info">Polish ※ tv ad ※ 2011 ※ Konkurs na reklamę HiMountain (winner)</span></p>
+    <div id="page" class="page">
+        Loading...
     </div>
-</body>
 
+    <template id="entry-template">
+        <p class="entry">
+            <span class="link"><span id="title"></span><span id="links-section"> | <span id="links"></span></span></span>
+            <span class="info" id="info"></span>
+        </p>
+    </template>
+
+    <template id="links-template">
+        <a class="pdf" id="pdf" href="files/slug.pdf"></a> <a class="fountain" id="fountain" href="files/slug.fountain"></a>
+    </template>
+</body>
 </html>
